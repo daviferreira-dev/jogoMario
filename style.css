@@ -1,0 +1,564 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&display=swap");
+
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e8cc7a;
+  --gold-dim: #7a6030;
+  --blood: #8b0000;
+  --blood-bright: #cc2200;
+  --dark: #0d0b09;
+  --text-dim: #6b5f4a;
+  --text-mid: #a09070;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #000;
+}
+
+/* ═══════════════════════════════════════
+   MENU SCREEN
+═══════════════════════════════════════ */
+.menu-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cinzel", serif;
+  overflow: hidden;
+}
+
+.menu-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.menu-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 70% at 50% 50%,
+    transparent 20%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  pointer-events: none;
+}
+
+.menu-screen::after {
+  content: "";
+  position: absolute;
+  bottom: 58px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+
+/* ── LOGO ── */
+.menu-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+  animation: menuFadeIn 2s ease forwards;
+}
+
+.menu-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-logo-rule {
+  width: 340px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  position: relative;
+}
+
+.menu-logo-rule::before {
+  content: "◆";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+  font-size: 0.55rem;
+  background: var(--dark);
+  padding: 0 6px;
+}
+
+.menu-logo-inner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 0;
+}
+
+.menu-logo-mushroom {
+  font-size: 3.2rem;
+  filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.5))
+    drop-shadow(0 0 30px rgba(201, 168, 76, 0.2));
+  animation: mushGlow 3s ease-in-out infinite;
+}
+
+.menu-logo-text {
+  text-align: left;
+}
+
+.menu-logo-title {
+  font-family: "Cinzel Decorative", serif;
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 8px;
+  color: var(--gold-light);
+  text-shadow:
+    0 0 20px rgba(201, 168, 76, 0.6),
+    0 0 60px rgba(201, 168, 76, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.9);
+  line-height: 1;
+}
+
+.menu-logo-sub {
+  font-size: 0.6rem;
+  letter-spacing: 5px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-top: 7px;
+  text-align: center;
+}
+
+/* ── PRESS START ── */
+.menu-press-start {
+  font-size: 0.75rem;
+  letter-spacing: 5px;
+  color: var(--text-mid);
+  animation: blink 2.2s ease-in-out infinite;
+}
+
+/* ── SELECT WRAP ── */
+.menu-select-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  animation: slideUp 0.6s ease forwards;
+}
+
+.menu-choose-label {
+  font-size: 0.68rem;
+  letter-spacing: 4px;
+  color: var(--text-dim);
+}
+
+/* ── DIFFICULTY CARDS ── */
+.difficulty-options {
+  display: flex;
+  gap: 0;
+}
+
+.diff-btn {
+  background: rgba(13, 11, 9, 0.85);
+  border: 1px solid var(--gold-dim);
+  border-right: none;
+  padding: 26px 22px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 158px;
+  color: var(--text-mid);
+  font-family: "Cinzel", serif;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.diff-btn:last-child {
+  border-right: 1px solid var(--gold-dim);
+}
+
+.diff-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.diff-btn--hard::before {
+  background: linear-gradient(90deg, transparent, var(--blood), transparent);
+}
+
+.diff-btn:hover::before,
+.diff-btn.selected::before {
+  opacity: 1;
+}
+
+.diff-btn:hover {
+  background: rgba(201, 168, 76, 0.05);
+  color: var(--gold-light);
+}
+
+.diff-btn.selected {
+  background: rgba(201, 168, 76, 0.09);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.diff-btn--hard:hover,
+.diff-btn--hard.selected {
+  background: rgba(139, 0, 0, 0.1);
+  border-color: var(--blood);
+  color: #d07070;
+}
+
+.diff-tier {
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  opacity: 0.35;
+  font-weight: 400;
+}
+
+.diff-label {
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.diff-desc {
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  opacity: 0.5;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.diff-rune {
+  font-size: 0.5rem;
+  letter-spacing: 4px;
+  opacity: 0.3;
+  margin-top: 2px;
+}
+
+/* ── START BUTTON ── */
+.start-btn {
+  background: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 5px;
+  padding: 14px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.start-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 76, 0.07),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.55s ease;
+}
+
+.start-btn:not(:disabled):hover::after {
+  transform: translateX(100%);
+}
+
+.start-btn:disabled {
+  opacity: 0.18;
+  cursor: not-allowed;
+}
+
+.start-btn:not(:disabled):hover {
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+  box-shadow:
+    0 0 24px rgba(201, 168, 76, 0.18),
+    inset 0 0 24px rgba(201, 168, 76, 0.04);
+}
+
+.hint-text {
+  color: var(--text-dim);
+  font-size: 0.6rem;
+  font-family: "Cinzel", serif;
+  letter-spacing: 2px;
+}
+
+kbd {
+  background: rgba(201, 168, 76, 0.07);
+  border: 1px solid var(--gold-dim);
+  border-radius: 2px;
+  padding: 1px 5px;
+  font-size: 0.58rem;
+  color: var(--gold-dim);
+}
+
+/* ── FOOTER ── */
+.menu-footer {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.52rem;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  z-index: 10;
+  opacity: 0.4;
+  font-family: "Cinzel", serif;
+}
+
+/* ═══════════════════════════════════════
+   GAME BOARD
+═══════════════════════════════════════ */
+.game-board {
+  width: 100%;
+  height: 500px;
+  border-bottom: 15px solid rgb(35, 160, 35);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#87ceeb, #e0f6ff);
+}
+
+.pipe {
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+}
+
+.mario {
+  width: 150px;
+  position: absolute;
+  bottom: 0;
+}
+
+.pulo {
+  animation: pulo 500ms ease-out forwards;
+}
+
+.nuvems {
+  position: absolute;
+  width: 550px;
+  animation: nuvems-animation 20s infinite linear;
+}
+
+/* ═══════════════════════════════════════
+   YOU DIED SCREEN
+═══════════════════════════════════════ */
+.you-died-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 28px;
+  font-family: "Cinzel", serif;
+}
+
+.you-died-screen.visible {
+  display: flex;
+  animation: fadeInDark 1.2s ease forwards;
+}
+
+.you-died-text {
+  font-family: "Cinzel Decorative", serif;
+  font-size: clamp(2.6rem, 9vw, 6rem);
+  font-weight: 700;
+  color: #8b0000;
+  letter-spacing: 10px;
+  opacity: 0;
+  text-shadow:
+    0 0 20px rgba(139, 0, 0, 0.9),
+    0 0 60px rgba(139, 0, 0, 0.4),
+    0 0 100px rgba(139, 0, 0, 0.15),
+    2px 2px 0 #1a0000;
+  animation: diedAppear 1.2s ease 0.7s forwards;
+}
+
+.souls-phrase {
+  font-size: 0.75rem;
+  color: #4a3f32;
+  letter-spacing: 3px;
+  max-width: 460px;
+  text-align: center;
+  opacity: 0;
+  line-height: 2.1;
+  font-style: italic;
+  animation: diedAppear 1s ease 1.8s forwards;
+}
+
+.died-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: diedAppear 1s ease 2.4s forwards;
+}
+
+.restart-btn,
+.menu-btn {
+  background: transparent;
+  border: 1px solid rgba(139, 0, 0, 0.35);
+  color: #7a1a1a;
+  font-family: "Cinzel", serif;
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  padding: 12px 26px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.restart-btn:hover {
+  background: rgba(139, 0, 0, 0.12);
+  border-color: var(--blood);
+  color: var(--blood-bright);
+  box-shadow: 0 0 18px rgba(139, 0, 0, 0.25);
+}
+
+.menu-btn {
+  border-color: rgba(100, 90, 70, 0.3);
+  color: var(--text-dim);
+}
+
+.menu-btn:hover {
+  background: rgba(201, 168, 76, 0.05);
+  border-color: var(--gold-dim);
+  color: var(--gold);
+  box-shadow: 0 0 14px rgba(201, 168, 76, 0.12);
+}
+
+/* ═══════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════ */
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.08;
+  }
+}
+
+@keyframes mushGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.5))
+      drop-shadow(0 0 30px rgba(201, 168, 76, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 22px rgba(201, 168, 76, 0.85))
+      drop-shadow(0 0 55px rgba(201, 168, 76, 0.35));
+  }
+}
+
+@keyframes pulo {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 180px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes pipe-animation {
+  from {
+    right: -80px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes nuvems-animation {
+  from {
+    right: -550px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes fadeInDark {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.93);
+  }
+}
+
+@keyframes diedAppear {
+  from {
+    opacity: 0;
+    transform: scaleX(1.12);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+    filter: blur(0);
+  }
+}

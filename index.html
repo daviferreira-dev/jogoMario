@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <title>Jogo</title>
+    <link rel="shortcut icon" href="assets/imgs/Mario-ico.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <!-- TELA DE SELEÇÃO DE DIFICULDADE -->
+    <div class="menu-screen" id="menuScreen">
+      <canvas class="menu-particles" id="menuParticles"></canvas>
+      <div class="menu-vignette"></div>
+      <div class="menu-content">
+        <div class="menu-logo-wrap">
+          <div class="menu-logo-rule"></div>
+          <div class="menu-logo-inner">
+            <div class="menu-logo-text">
+              <div class="menu-logo-title">SUPER MARIO</div>
+              <div class="menu-logo-sub">PREPARE TO JUMP EDITION</div>
+            </div>
+          </div>
+          <div class="menu-logo-rule"></div>
+        </div>
+        <p class="menu-press-start" id="menuPressStart">PRESSIONE QUALQUER TECLA</p>
+        <div class="menu-select-wrap" id="menuSelectWrap" style="display:none;">
+          <p class="menu-choose-label">— Escolha sua provação —</p>
+          <div class="difficulty-options">
+            <button class="diff-btn" data-difficulty="facil">
+              <span class="diff-tier">I</span>
+              <span class="diff-label">INICIANTE</span>
+              <span class="diff-desc">O cano avança devagar.<br>A piedade ainda existe.</span>
+              <span class="diff-rune">✦</span>
+            </button>
+            <button class="diff-btn diff-btn--mid" data-difficulty="medio">
+              <span class="diff-tier">II</span>
+              <span class="diff-label">VETERANO</span>
+              <span class="diff-desc">Velocidade sem clemência.<br>Reflexos serão testados.</span>
+              <span class="diff-rune">✦✦</span>
+            </button>
+            <button class="diff-btn diff-btn--hard" data-difficulty="dificil">
+              <span class="diff-tier">III</span>
+              <span class="diff-label">SEM ALMA</span>
+              <span class="diff-desc">O cano não perdoa.<br>Prepare-se para morrer.</span>
+              <span class="diff-rune">✦✦✦</span>
+            </button>
+          </div>
+          <button class="start-btn" id="startBtn" disabled>ACENDER A CHAMA</button>
+          <p class="hint-text">Pressione <kbd>ESPAÇO</kbd> ou <kbd>↑</kbd> para pular</p>
+        </div>
+      </div>
+      <div class="menu-footer">
+        <span>MARIO SOULS™ &nbsp;·&nbsp; PREPARE TO JUMP EDITION</span>
+      </div>
+    </div>
+
+    <!-- JOGO -->
+    <div class="game-board" id="gameBoard" style="display:none;">
+      <img src="/assets/imgs/clouds.png" class="nuvems">
+      <img src="/assets/imgs/mario.gif" class="mario" id="mario">
+      <img src="/assets/imgs/pipe.png" class="pipe" id="pipe">
+    </div>
+
+    <!-- TELA DE GAME OVER ESTILO DARK SOULS -->
+    <div class="you-died-screen" id="youDiedScreen">
+      <div class="you-died-text">VOCÊ MORREU</div>
+      <div class="souls-phrase" id="soulsPhrase"></div>
+      <div class="died-buttons">
+        <button class="restart-btn" id="restartBtn">↺ TENTAR NOVAMENTE</button>
+        <button class="menu-btn" id="menuBtn">☰ ESCOLHER MODO</button>
+      </div>
+    </div>
+
+  </body>
+</html>
