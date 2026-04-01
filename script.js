@@ -38,7 +38,7 @@ const PERSONAGENS = {
   mario: {
     sprite:      './assets/imgs/mario.gif',
     spriteOver:  './assets/imgs/game-over.png',
-    jumpHeight:  '230px',
+    jumpHeight:  '250px',
     jumpDuration:'500ms',
     frases: [
       "Até o Mario conhece a derrota.",
@@ -50,8 +50,8 @@ const PERSONAGENS = {
   },
   luigi: {
     sprite:      './assets/imgs/luigi.gif',
-    spriteOver:  './assets/imgs/game-over.png',
-    jumpHeight:  '290px',
+    spriteOver:  './assets/imgs/game-over-luigi.png',
+    jumpHeight:  '300px',
     jumpDuration:'600ms',
     frases: [
       "Luigi caiu, mas seu medo era justificado.",
@@ -467,7 +467,7 @@ function aplicarPowerup(tipo) {
 
   } else if (tipo === 'feather') {
     estado.puloAltoAtivo = true;
-    DOM.player().style.setProperty('--jump-height', '340px');
+    DOM.player().style.setProperty('--jump-height', '350px');
     clearTimeout(estado.puloAltoTimer);
     estado.puloAltoTimer = setTimeout(() => {
       estado.puloAltoAtivo = false;
