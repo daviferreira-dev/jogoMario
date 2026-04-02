@@ -250,14 +250,13 @@ function tocarSomYouDied() {
 // ════════════════════════════════════════════
 function initMenu() {
   initParticulas('menuParticles');
-  tocarAudio('audioMenu', 'assets/audios/YOU DIED (HD).mp3', 0.25, true);
+  tocarAudio('./assets/audios/Firelink Shrine.mp3');
 
   const pressStart = DOM.menuPressStart();
   const avançar = () => {
     pressStart.removeEventListener('click', avançar);
     document.removeEventListener('keydown', onKeyMenu);
     document.removeEventListener('touchstart', onTouchMenu);
-    pararAudio('audioMenu');
     irParaDificuldade();
   };
   const onKeyMenu = () => avançar();
