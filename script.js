@@ -257,7 +257,9 @@ function initMenu() {
     pressStart.removeEventListener('click', avançar);
     document.removeEventListener('keydown', onKeyMenu);
     document.removeEventListener('touchstart', onTouchMenu);
+    pararAudio('./assets/audios/Firelink Shrine.mp3');
     irParaDificuldade();
+
   };
   const onKeyMenu = () => avançar();
   const onTouchMenu = () => avançar();
