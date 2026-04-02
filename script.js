@@ -250,7 +250,7 @@ function tocarSomYouDied() {
 // ════════════════════════════════════════════
 function initMenu() {
   initParticulas('menuParticles');
-  tocarAudio('audioMenu', './assets/audios/Firelink Shrine - LOADING.mp3', 0.25, true);
+  tocarAudio('audioMenu', 'assets/audios/Firelink Shrine - LOADING.mp3', 0.25, true);
 
   const pressStart = DOM.menuPressStart();
   const avançar = () => {
