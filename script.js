@@ -257,7 +257,6 @@ function initMenu() {
     pressStart.removeEventListener('click', avançar);
     document.removeEventListener('keydown', onKeyMenu);
     document.removeEventListener('touchstart', onTouchMenu);
-    pararAudio('audioMenu');
     irParaDificuldade();
   };
   const onKeyMenu = () => avançar();
@@ -314,6 +313,7 @@ function irParaPersonagem() {
 
   startBtn.addEventListener('click', () => {
     if (!estado.personagem) return;
+    pararAudio('audioMenu');
     iniciarJogo();
   });
 }
