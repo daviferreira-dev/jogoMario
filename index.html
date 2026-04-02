@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js" defer></script>
     <title>Super Mario Souls</title>
-    <link rel="shortcut icon" href="assets/imgs/Mario-ico.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="assets/imgs/Mario-ico.ico"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-
     <!-- ══════════════════════════════════
          TELA 1 — MENU INICIAL
     ══════════════════════════════════ -->
@@ -29,15 +35,19 @@
           </div>
           <div class="menu-logo-rule"></div>
         </div>
-        <p class="menu-press-start" id="menuPressStart">PRESSIONE QUALQUER TECLA</p>
+        <p class="menu-press-start" id="menuPressStart">
+          PRESSIONE QUALQUER TECLA
+        </p>
       </div>
-      <div class="menu-footer"><span>MARIO SOULS™ &nbsp;·&nbsp; BOWSER'S CASTLE EDITION</span></div>
+      <div class="menu-footer">
+        <span>MARIO SOULS™ &nbsp;·&nbsp; BOWSER'S CASTLE EDITION</span>
+      </div>
     </div>
 
     <!-- ══════════════════════════════════
          TELA 2 — ESCOLHA DE DIFICULDADE
     ══════════════════════════════════ -->
-    <div class="screen" id="screenDifficulty" style="display:none;">
+    <div class="screen" id="screenDifficulty" style="display: none">
       <canvas class="menu-particles" id="diffParticles"></canvas>
       <div class="menu-vignette"></div>
       <div class="menu-content">
@@ -50,32 +60,42 @@
           <button class="diff-btn" data-difficulty="facil">
             <span class="diff-tier">I</span>
             <span class="diff-label">INICIANTE</span>
-            <span class="diff-desc">O obstáculo avança devagar.<br>A piedade ainda existe.</span>
+            <span class="diff-desc"
+              >O obstáculo avança devagar.<br />A piedade ainda existe.</span
+            >
             <span class="diff-rune">✦</span>
           </button>
           <button class="diff-btn diff-btn--mid" data-difficulty="medio">
             <span class="diff-tier">II</span>
             <span class="diff-label">VETERANO</span>
-            <span class="diff-desc">Velocidade sem clemência.<br>Reflexos serão testados.</span>
+            <span class="diff-desc"
+              >Velocidade sem clemência.<br />Reflexos serão testados.</span
+            >
             <span class="diff-rune">✦✦</span>
           </button>
           <button class="diff-btn diff-btn--hard" data-difficulty="dificil">
             <span class="diff-tier">III</span>
             <span class="diff-label">SEM ALMA</span>
-            <span class="diff-desc">O fogo não perdoa.<br>Prepare-se para morrer.</span>
+            <span class="diff-desc"
+              >O fogo não perdoa.<br />Prepare-se para morrer.</span
+            >
             <span class="diff-rune">✦✦✦</span>
           </button>
         </div>
         <button class="start-btn" id="diffNextBtn" disabled>PROSSEGUIR</button>
-        <p class="hint-text">Pressione <kbd>ESPAÇO</kbd> ou <kbd>↑</kbd> para pular</p>
+        <p class="hint-text">
+          Pressione <kbd>ESPAÇO</kbd> ou <kbd>↑</kbd> para pular
+        </p>
       </div>
-      <div class="menu-footer"><span>MARIO SOULS™ &nbsp;·&nbsp; BOWSER'S CASTLE EDITION</span></div>
+      <div class="menu-footer">
+        <span>MARIO SOULS™ &nbsp;·&nbsp; BOWSER'S CASTLE EDITION</span>
+      </div>
     </div>
 
     <!-- ══════════════════════════════════
          TELA 3 — ESCOLHA DE PERSONAGEM
     ══════════════════════════════════ -->
-    <div class="screen" id="screenCharacter" style="display:none;">
+    <div class="screen" id="screenCharacter" style="display: none">
       <canvas class="menu-particles" id="charParticles"></canvas>
       <div class="menu-vignette"></div>
       <div class="menu-content">
@@ -87,36 +107,78 @@
         <div class="character-options">
           <button class="char-btn" data-character="mario">
             <div class="char-sprite-wrap">
-              <img src="./assets/imgs/mario.gif" class="char-preview" alt="Mario" />
+              <img
+                src="./assets/imgs/mario.gif"
+                class="char-preview"
+                alt="Mario"
+              />
             </div>
             <span class="char-name">MARIO</span>
-            <span class="char-desc">O herói clássico.<br>Pulo equilibrado.</span>
+            <span class="char-desc"
+              >O herói clássico.<br />Pulo equilibrado.</span
+            >
             <div class="char-stats">
-              <div class="stat-row"><span>PULO</span><div class="stat-bar"><div class="stat-fill" style="width:70%"></div></div></div>
-              <div class="stat-row"><span>FORÇA</span><div class="stat-bar"><div class="stat-fill" style="width:80%"></div></div></div>
+              <div class="stat-row">
+                <span>PULO</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="stat-row">
+                <span>FORÇA</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width: 80%"></div>
+                </div>
+              </div>
             </div>
           </button>
           <button class="char-btn" data-character="luigi">
             <div class="char-sprite-wrap">
-              <img src="./assets/imgs/luigi.gif" class="char-preview" alt="Luigi" />
+              <img
+                src="./assets/imgs/luigi.gif"
+                class="char-preview"
+                alt="Luigi"
+              />
             </div>
             <span class="char-name">LUIGI</span>
-            <span class="char-desc">O irmão corajoso.<br>Pulo mais alto.</span>
+            <span class="char-desc"
+              >O irmão corajoso.<br />Pulo mais alto.</span
+            >
             <div class="char-stats">
-              <div class="stat-row"><span>PULO</span><div class="stat-bar"><div class="stat-fill stat-fill--luigi" style="width:90%"></div></div></div>
-              <div class="stat-row"><span>FORÇA</span><div class="stat-bar"><div class="stat-fill stat-fill--luigi" style="width:60%"></div></div></div>
+              <div class="stat-row">
+                <span>PULO</span>
+                <div class="stat-bar">
+                  <div
+                    class="stat-fill stat-fill--luigi"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+              <div class="stat-row">
+                <span>FORÇA</span>
+                <div class="stat-bar">
+                  <div
+                    class="stat-fill stat-fill--luigi"
+                    style="width: 60%"
+                  ></div>
+                </div>
+              </div>
             </div>
           </button>
         </div>
-        <button class="start-btn" id="charStartBtn" disabled>ACENDER A CHAMA</button>
+        <button class="start-btn" id="charStartBtn" disabled>
+          ACENDER A CHAMA
+        </button>
       </div>
-      <div class="menu-footer"><span>MARIO SOULS™ &nbsp;·&nbsp; BOWSER'S CASTLE EDITION</span></div>
+      <div class="menu-footer">
+        <span>MARIO SOULS™ &nbsp;·&nbsp; BOWSER'S CASTLE EDITION</span>
+      </div>
     </div>
 
     <!-- ══════════════════════════════════
          TELA 4 — JOGO (BOWSER'S CASTLE)
     ══════════════════════════════════ -->
-    <div class="game-board" id="gameBoard" style="display:none;">
+    <div class="game-board" id="gameBoard" style="display: none">
       <!-- HUD -->
       <div class="hud">
         <div class="hud-score">
@@ -127,7 +189,7 @@
           <span class="hud-label">VIDAS</span>
           <span class="hud-hearts" id="heartsDisplay">❤️❤️❤️</span>
         </div>
-        <div class="hud-powerup" id="powerupDisplay" style="display:none;">
+        <div class="hud-powerup" id="powerupDisplay" style="display: none">
           <span class="hud-label">PODER</span>
           <span class="hud-value" id="powerupName">—</span>
         </div>
@@ -148,11 +210,11 @@
       <canvas class="castle-particles" id="castleParticles"></canvas>
 
       <!-- Fumaça / cinzas no topo -->
-      <img src="./assets/imgs/clouds.png" class="smoke" id="smoke1">
-      <img src="./assets/imgs/clouds.png" class="smoke" id="smoke2">
+      <img src="./assets/imgs/clouds.png" class="smoke" id="smoke1" />
+      <img src="./assets/imgs/clouds.png" class="smoke" id="smoke2" />
 
       <!-- Personagem -->
-      <img src="./assets/imgs/mario.gif" class="player" id="player">
+      <img src="./assets/imgs/mario.gif" class="player" id="player" />
 
       <!-- Obstáculos (gerados via JS) -->
       <div id="obstaclesContainer"></div>
@@ -168,7 +230,7 @@
          TELA 5 — VOCÊ MORREU
     ══════════════════════════════════ -->
     <div class="you-died-screen" id="youDiedScreen">
-      <div class="you-died-text" id="youDiedText">MARIO  MORREU</div>
+      <div class="you-died-text" id="youDiedText">MARIO MORREU</div>
       <div class="souls-phrase" id="soulsPhrase"></div>
       <div class="died-score">
         <span class="died-score-label">ALMAS COLETADAS</span>
@@ -181,12 +243,11 @@
     </div>
 
     <!-- Áudios -->
-    <audio id="audioMenu"   loop></audio>
-    <audio id="audioGame"   loop></audio>
-    <audio id="audioDeath"      ></audio>
-    <audio id="audioJump"       ></audio>
-    <audio id="audioDamage"     ></audio>
-    <audio id="audioPowerup"    ></audio>
-
+    <audio id="audioMenu"></audio>
+    <audio id="audioGame" loop></audio>
+    <audio id="audioDeath"></audio>
+    <audio id="audioJump"></audio>
+    <audio id="audioDamage"></audio>
+    <audio id="audioPowerup"></audio>
   </body>
 </html>
