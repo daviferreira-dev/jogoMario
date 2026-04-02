@@ -250,16 +250,15 @@ function tocarSomYouDied() {
 // ════════════════════════════════════════════
 function initMenu() {
   initParticulas('menuParticles');
-  tocarAudio('./assets/audios/Firelink Shrine.mp3');
+  tocarAudio('audioMenu', './assets/audios/Firelink Shrine - LOADING.mp3', 0.25, true);
 
   const pressStart = DOM.menuPressStart();
   const avançar = () => {
     pressStart.removeEventListener('click', avançar);
     document.removeEventListener('keydown', onKeyMenu);
     document.removeEventListener('touchstart', onTouchMenu);
-    pararAudio('./assets/audios/Firelink Shrine.mp3');
+    pararAudio('audioMenu');
     irParaDificuldade();
-
   };
   const onKeyMenu = () => avançar();
   const onTouchMenu = () => avançar();
